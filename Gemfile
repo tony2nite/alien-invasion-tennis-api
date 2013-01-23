@@ -5,7 +5,7 @@ gem 'rails', '3.2.11'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -39,6 +39,7 @@ gem "twitter-bootstrap-rails"
 # To use debugger
 # gem 'debugger'
 group :development, :test do
+  gem 'sqlite3'
   gem 'pry-rails'
 
   # testing
@@ -55,4 +56,8 @@ group :test do
 
   # test-ratio
   gem 'simplecov'
+end
+
+group :production do
+  gem 'pg'
 end
