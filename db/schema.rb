@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130123110157) do
+ActiveRecord::Schema.define(:version => 20130123185144) do
 
   create_table "matches", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(:version => 20130123110157) do
   end
 
   create_table "player_matches", :force => true do |t|
-    t.string   "player_id",  :null => false
-    t.string   "match_id",   :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "player_id",  :limit => 255, :null => false
+    t.integer  "match_id",   :limit => 255, :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "players", :force => true do |t|
