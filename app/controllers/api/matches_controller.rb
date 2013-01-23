@@ -35,7 +35,8 @@ class Api::MatchesController < ApplicationController
   # GET /matches/1/edit
   def edit
     @match = Match.find(params[:id])
-    4.times {@match.players.build}
+
+    (4 - @match.player_matches.length).times {@match.player_matches.build}
   end
 
   # POST /matches

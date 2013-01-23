@@ -3,7 +3,12 @@
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
 
+
 <dl class="dl-horizontal">
+  <% @match.players.each do |player| %>
+  <dt><strong><%= model_class.human_attribute_name(:players) %>:</strong></dt>
+  <dd><%= player.name %></dd>
+  <% end %>
 </dl>
 
 <div class="form-actions">
