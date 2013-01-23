@@ -1,10 +1,4 @@
 ProjectFunTime::Application.routes.draw do
-  resources :matches
-
-
-  resources :players
-
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -19,7 +13,7 @@ ProjectFunTime::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :players
+  
   
   # Sample resource route with options:
   #   resources :products do
@@ -55,6 +49,11 @@ ProjectFunTime::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  namespace :api do
+    resources :matches
+    resources :players
+  end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

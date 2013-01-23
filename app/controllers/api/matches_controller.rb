@@ -1,4 +1,4 @@
-class MatchesController < ApplicationController
+class Api::MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index

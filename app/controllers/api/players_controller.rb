@@ -1,4 +1,4 @@
-class PlayersController < ApplicationController
+class Api::PlayersController < ApplicationController
   # GET /players
   # GET /players.json
   def index
