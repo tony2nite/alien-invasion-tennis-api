@@ -1,3 +1,4 @@
 class Match < ActiveRecord::Base
-  attr_accessible :player_1_id, :player_2_id
+	has_many :player_matches
+	has_many :players, :through => :player_matches
 end

@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Match do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe "NEW should link to players" do
+		it "Match should have related players" do
+			player_1 = FactoryGirl.create :player
+			player_2 = FactoryGirl.create :player
+			match = Match.create!()
+			match.players.length.should == 0
+		end
+	end
 end
