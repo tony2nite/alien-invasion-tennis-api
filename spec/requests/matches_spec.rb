@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Matches" do
-  describe "GET /matches" do
+  describe "GET /api/matches" do
     it "works! (now write some real specs)" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       get api_matches_path

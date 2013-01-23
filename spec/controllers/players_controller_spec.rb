@@ -18,7 +18,7 @@
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe PlayersController do
+describe Api::PlayersController do
 
   # This should return the minimal set of attributes required to create a valid
   # Player. As you add validations to Player, be sure to
@@ -81,7 +81,7 @@ describe PlayersController do
 
         it "redirects to the created player" do
           post :create, {:player => valid_attributes}, valid_session
-          response.should redirect_to(Player.last)
+          response.should redirect_to(api_player_url(Player.last))
         end
       end
 
@@ -123,7 +123,7 @@ describe PlayersController do
       it "redirects to the player" do
         player = Player.create! valid_attributes
         put :update, {:id => player.to_param, :player => valid_attributes}, valid_session
-        response.should redirect_to(player)
+        response.should redirect_to(api_player_url(player))
       end
     end
 
@@ -157,7 +157,7 @@ describe PlayersController do
       it "redirects to the players list" do
         player = Player.create! valid_attributes
         delete :destroy, {:id => player.to_param}, valid_session
-        response.should redirect_to(players_url)
+        response.should redirect_to(api_players_url)
       end
     end
 

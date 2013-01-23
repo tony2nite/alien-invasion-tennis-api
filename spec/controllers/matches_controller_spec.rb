@@ -18,7 +18,7 @@ require 'spec_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-describe MatchesController do
+describe Api::MatchesController do
 
   # This should return the minimal set of attributes required to create a valid
   # Match. As you add validations to Match, be sure to
@@ -81,7 +81,7 @@ describe MatchesController do
 
       it "redirects to the created match" do
         post :create, {:match => valid_attributes}, valid_session
-        response.should redirect_to(Match.last)
+        response.should redirect_to(api_match_url(Match.last))
       end
     end
 
@@ -123,7 +123,7 @@ describe MatchesController do
       it "redirects to the match" do
         match = Match.create! valid_attributes
         put :update, {:id => match.to_param, :match => valid_attributes}, valid_session
-        response.should redirect_to(match)
+        response.should redirect_to(api_match_url(match))
       end
     end
 
@@ -157,7 +157,7 @@ describe MatchesController do
     it "redirects to the matches list" do
       match = Match.create! valid_attributes
       delete :destroy, {:id => match.to_param}, valid_session
-      response.should redirect_to(matches_url)
+      response.should redirect_to(api_matches_url)
     end
   end
 

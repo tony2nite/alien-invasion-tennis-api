@@ -42,7 +42,6 @@ class Api::MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
-    binding.pry
     @match = Match.new(params[:match])
 
     respond_to do |format|
@@ -79,7 +78,7 @@ class Api::MatchesController < ApplicationController
     @match.destroy
 
     respond_to do |format|
-      format.html { redirect_to matches_url }
+      format.html { redirect_to api_matches_url }
       format.json { head :no_content }
     end
   end

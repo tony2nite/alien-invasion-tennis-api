@@ -18,8 +18,11 @@
         <td><%= link_to player.id, api_player_path(player) %></td>
         <td><%= player.name %></td>
         <td>
+          <ul>
           <% player.matches.each do |match| %>
+              <li><%= link_to match.id, api_match_path(match) %></li>
           <% end %>
+          </ul>
         </td>
         <td><%=l player.created_at %></td>
         <td>
