@@ -25,7 +25,7 @@ class Api::MatchesController < ApplicationController
   # GET /matches/new.json
   def new
     @match = Match.new
-
+    4.times {@match.players.build}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @match }
@@ -35,16 +35,18 @@ class Api::MatchesController < ApplicationController
   # GET /matches/1/edit
   def edit
     @match = Match.find(params[:id])
+    4.times {@match.players.build}
   end
 
   # POST /matches
   # POST /matches.json
   def create
+    binding.pry
     @match = Match.new(params[:match])
 
     respond_to do |format|
       if @match.save
-        format.html { redirect_to @match, notice: 'Match was successfully created.' }
+        format.html { redirect_to api_match_path(@match), notice: 'Match was successfully created.' }
         format.json { render json: @match, status: :created, location: @match }
       else
         format.html { render action: "new" }
@@ -60,7 +62,7 @@ class Api::MatchesController < ApplicationController
 
     respond_to do |format|
       if @match.update_attributes(params[:match])
-        format.html { redirect_to @match, notice: 'Match was successfully updated.' }
+        format.html { redirect_to api_match_path(@match), notice: 'Match was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

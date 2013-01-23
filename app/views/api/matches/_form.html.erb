@@ -1,11 +1,19 @@
-<%= form_for @match, :html => { :class => 'form-horizontal' } do |f| %>
-
+<%= form_for([:api, @match], :html => { :class => 'form-horizontal' }) do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+    <%= f.fields_for :players do |player_form| %>
+    <li>
+    <%= player_form.label :name, 'Player Name' %>
+    <%= player_form.collection_select(:id, Player.all, :id, :name, {:prompt => true}) %>
+    </li>
+    <% end %>
+    </div>
+  </div>
   <div class="form-actions">
+
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                matches_path, :class => 'btn' %>
-  	<%= f.fields_for :players do |builder| %>
-    	
-  	<% end %>
+                api_matches_path, :class => 'btn' %>
   </div>
 <% end %>

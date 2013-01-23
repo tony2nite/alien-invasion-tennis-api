@@ -12,7 +12,7 @@ describe "matches/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => matches_path(@match), :method => "post" do
+    assert_select "form", :action => api_matches_path(@match), :method => "post" do
       assert_select "input#match_player_1_id", :name => "match[player_1_id]"
       assert_select "input#match_player_2_id", :name => "match[player_2_id]"
     end

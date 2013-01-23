@@ -39,6 +39,8 @@ gem "twitter-bootstrap-rails"
 # To use debugger
 # gem 'debugger'
 group :development, :test do
+  gem 'pry-rails'
+
   # testing
   gem 'rspec-rails'
   gem 'factory_girl_rails'
